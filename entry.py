@@ -13,7 +13,7 @@ class Entry: #this class is going to set and get the values that correlate with 
     def get_meal(self):
         return self.__meal
 
-    def set_meal(self, meal): #yahir line 18 - 26
+    def set_meal(self, meal): 
         self.__meal = meal
 
         # Will get the price and set the price
