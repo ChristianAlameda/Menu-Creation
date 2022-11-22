@@ -1,7 +1,6 @@
 from entry import Entry
 from menu import Menu
 class Interface: #Holds the function for the interface
-    # Yumong Lee 1-15
     cInventory = Menu()
     cInventory.create_inventory("restaurant.csv")
     print("***********************************************************")
@@ -13,7 +12,6 @@ class Interface: #Holds the function for the interface
     a = input("Enter Number Here: ")
     if a == "0":
       cInventory.exit()
-      #Christian:16-46
       # want a system so that if they press a certain button they will get to a certain place
     while(a!="0"):
       if(a=="1"):
@@ -56,7 +54,6 @@ class Interface: #Holds the function for the interface
             a = input("\nEnter Number: ")
             if(a=="0"):
                 cInventory.exit() #exits program
-           #yahir 47 - 72  
       elif(a=="2"): #prints menu and brings down the menu that prompts the user with the other options
         cInventory.print_menu()
         cInventory.give_options()
@@ -85,8 +82,6 @@ class Interface: #Holds the function for the interface
           cInventory.write_back("restaurant.csv")
           cInventory.exit()
 
-      # Yumong Lee 75-81
-      # Doesn't work yet
       elif(a=="5"): # Edit rows within csv file
         cInventory.print_menu()
         cInventory.edit_inventory("restaurant.csv")
