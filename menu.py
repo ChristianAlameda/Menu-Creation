@@ -25,14 +25,6 @@ class Menu:
             writer.writerow(row)
     
     
-    
-    
-    
-    
-    
-    
-    
-    #Yumong 5-27
     #Making a list for the menu
     def __init__(self):
         self.__list_meal = []
@@ -56,7 +48,6 @@ class Menu:
                a.append(i)
         return a
 
-    #yahir 29 - 45
     def print_menu(self):  #prints the menu in its entirety
         print(
             "       [Meals], [Calories], [Ingredients], [Food Types], [Prices]"
@@ -81,7 +72,7 @@ class Menu:
             meal_list = [meal.get_meal(), str(meal.get_calories()), meal.get_ingredients(), meal.get_type(), str(float(meal.get_price()))]
             csvwriter.writerow(meal_list)
             
-    # Yumong Lee 47-54
+
     # Allows the user to choose from a row and edits that whole row
     def edit_inventory(self, restaurant):
       # Read Before testing it out
@@ -108,7 +99,6 @@ class Menu:
           # It's gonna get the user's # input and then match it with the row  within the csv file
           # After that it's gonna allow the user to edit that certain line with whatever they want to change it to.
           # But I am not sure if I implemented it correctly.
-     # Chrisitan 93-118
               #make a function that will take in restaurant and go through the lines
     def create_inventory(self, restaurant): 
       #read in the file
