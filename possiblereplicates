@@ -1,0 +1,44 @@
+# We are not going to be importing/exporting anything out of here to another class/file
+# I am just doodling in here to see what comes up to my mind
+# Just alterante ways of how we can approach certain things if we need some ideas
+
+# This function allows the user to edit the meal name/prices
+def editMenuItems():
+  print()
+  print("[1] - Edit Meal Names")
+  print("[2] - Edit Meal Prices")
+  while True:
+    userIn = input("Choose one of the options")
+    if userIn in ['1', '2']:
+      break
+
+  # If user enters in 1
+  menuItems = getMenuItems()
+  if userIn == '1':
+    print()
+    while True:
+      # mealToChange is the meal
+      mealToChange = inpunt("Enter the Name of the Meal to Edit: ")
+      if mealToChange in menuItems:
+        break
+      else:
+        print("That meal Does Not Exists. ")
+        print()
+
+      while True:
+        
+  
+  
+# Another way of how to edit meal names and price numbers
+      def getMenuItems():
+        menuItems = {}
+        with open ('restaurant.csv', 'r') as csvfile:
+          for line in csvfile:
+            line = line.replace('\n','').split(':')
+            meal, price = line[0], line[4].strip()
+            menuItems.update({meal: int(price)})
+
+          return menuItems
+
+      # A possibly different approach to how we can possible add a new meal if we can't find a way to get the edit_inventory to work
+      def 

@@ -1,0 +1,153 @@
+piece of code will be used when implementing search with type
+
+if menu == None:
+      print("Type of food doesn't exist or may be misspelled.")
+    else:
+      print("Food type: " + menu.get_type() +  "\nName of meal: " + str(menu.get_meal()) + "\nCalories: " + str(menu.get_calories()) + "\nIngredients: " + str(menu.get_ingredients()) + menu.get_type() + "\nCosts: " + "$" + (str(menu.get_price())))
+
+this will be used in mainfunctions
+
+ type = input("Enter Type of food: ")
+    menu = cInventory.search_type(type)
+#####################################################################################
+def price_inventory():
+    cInventory = MenuInventory()
+    cInventory.create_inventory("restaurant.csv")
+    price = input("Enter Menu: ")
+    menu = cInventory.search_price(price)
+    #full_menu = cInventory.print_menu() #used for printing list (needs fixing)
+      #prev line will print addresses of the meal we pick
+    if menu == None:
+        print("Menu not found, that menu doesn't exists or is misspelled.")
+    else:
+        print("Menu Info: " + str(menu.get_meal()) + "\nCalories: " + str(menu.get_calories()) + "\nIngredients: " + str(menu.get_ingredients()) + "\nFood Type: " +
+          menu.get_type() + "\nCosts: " + "$" + (str(menu.get_price())))
+This one is strange because there will be multiple meals that get fetched because there are multiple dishes worth 10 dollars
+#####################################################################################
+we could do something like 
+i = input("Input a number(0 for __,1 for __, 2 for __, 3 for __, 4 for __): ")
+switch(i):
+  case 0:
+    main_inventory()
+    break
+  case 1:
+    type_inventory()
+    break
+  case 2: 
+    price_inventory()
+    break
+  case 3:
+    print_menu()
+    break
+  case 4:
+    exit()
+  default: 
+    print("Option doesn't exist, please try again!") 
+(from yahir - yeah this would work i just added the default case for error handling, I would rather use case than if statements since they would be easier to read and in my opinion are easier to use as well )
+
+or
+
+x= input("Enter 0 to search for meal, 1 for changing meal name, 2 for changing price")
+if(x==0):
+  y=input("Would you like to search by 1("meal name"), 2("type of food"), or 3("price of food"))
+  if(y==1):
+    main_inventory()
+  if(y==2):
+    type_inventory()
+  if(y==3):
+    price_inventory()
+if(x==1):
+  a = input("what is the meal name you would like to change(spelling and capitalization matters): ")
+
+a=int(input("\nEnter one of the numbers above to search: "))
+  if(a==1):
+    meal = input("Enter meal: ")
+    mealInfo = cInventory.search_meal(meal) # gonna change menu to mealInfo    #cInventory.print_menu(mealInfo) #used for printing list (needs fixing)      #prev line will print addresses of the meal we pick
+  else:
+    if(a==2):
+      type = input("Enter Type of Food: ")
+      mealInfo = cInventory.search_type(type)
+    
+    # Yumong Lee 25-29
+    # Returns whether or not the meal was found or not
+    if mealInfo == None:   
+
+for i in self.__list_meal:
+    a = []
+      if i.get_type() == type:
+        a.append(i)
+        return a
+    return None 
+##################################################################################################
+Backup csv file:
+meals,calories,Ingredients,Type,Price
+tostada,333,"Fried Corn Tortilla, Refried Beans, Shredded Cheese, Salsa",Mexican,10
+quesadillas,528,"cheese, tortilla",Mexican,12.5
+Curry rice,400,"curry, rice",Indian,8
+enchiladas,323,"Meat, Cheese, Potatoes, Vegetables, Beans, Tofu",Mexican,12
+tacos,200,"carne asada, lettuce, cheese",Mexican,10
+burritos,670,"tortilla,meat, rice, beans",Mexican,10
+chimichanga,420,"Rice, Beans, Meat, Cheese",Mexican,14
+carne asada fries,887,Flank Steak,Mexican,12
+wet burrito,417,"Meat, Cheese, Beans, Rice, ",Mexican,14
+sopes,460,"Masa Harina, Water, Salt, Oil",Mexican,8
+hamburgers ,354,"Beef, Cheese, Lettuce, Buns ",American,11
+shrimp fajita,530,"Shrimp, Onions, Bell Pepper",Mexican,10
+churros,116,"Flour, Water, Salt",Mexican,9
+tamales,284,"Meat, Corn, Potatoes, Peppers, Cheese, Carrots",Mexican,8
+nachos,600,"Tortilla Chips, Sheese, Jalapeño, Meat, Sour Cream, Salsa, Guacamole",Mexican,8
+hot dog,151,"Sausage, Bun, ",American,5
+Orange Chicken,368,"Chicken, Soy Sauce, Garlic, Ginger, Sugar",Chinese,12
+Chow Mein,1200,"Noodles, Meat, Onions, Celery",Chinese,11
+####################################################################################
+
+// Dictionary implementation using BST
+// This uses KVPair to manage the key/value pairs
+public class BSTDict implements Dictionary {
+  private BST theBST; // The BST that stores the records
+
+  // constructor
+  BSTDict() { theBST = new BST(); }
+
+  // Reinitialize dictionary
+  public void clear() { theBST = new BST(); }
+
+  // Insert a record
+  // k: the key for the record being inserted.
+  // e: the record being inserted.
+  public void insert(Comparable k, Object e) {
+    theBST.insert(new KVPair(k, e));
+  }
+
+  // Remove and return a record.
+  // k: the key of the record to be removed.
+  // Return a maching record. If multiple records match "k", remove
+  // an arbitrary one. Return null if no record with key "k" exists.
+  public Object remove(Comparable k) {
+    Object temp = theBST.remove(k);
+    if (temp == null) return temp;
+    else return ((KVPair)temp).value();
+  }
+
+  // Remove and return an arbitrary record from dictionary.
+  // Return the record removed, or null if none exists.
+  public Object removeAny() {
+    if (theBST.size() == 0) return null;
+    Object temp = theBST.remove(((KVPair)(theBST.root().value())).key());
+    return ((KVPair)temp).value();
+  }
+
+  // Return a record matching "k" (null if none exists).
+  // If multiple records match, return an arbitrary one.
+  // k: the key of the record to find
+  public Object find(Comparable k) {
+    Object temp = theBST.find(k);
+    if (temp == null) return temp;
+    else return ((KVPair)temp).value();
+  }
+
+  // Return the number of records in the dictionary.
+  public int size() {
+    return theBST.size();
+  }
+}
