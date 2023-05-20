@@ -12,7 +12,7 @@ if __name__ == "__main__":
   if choice == 0:
     main_analysis()
   elif choice == 1:
-    interface()
+    interface.interface()
 
 
 
