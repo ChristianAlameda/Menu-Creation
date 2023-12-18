@@ -1,9 +1,0 @@
-This was a group project with me(Christian Alameda), Yahir Lopez, and Yumong Lee
-Yumong left half way through so that is why his name is less mentioned the further we go along
-
-We wanted to make a menu creation for family restaurants so they could easily alter there menus 
-and easily print them out as needed.
-Once we finished with lists, we made it faster using hashing 
-
-I hope you all enjoy playing with this program, and please let me know about any problems you may find
-Thank you
