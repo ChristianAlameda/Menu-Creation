@@ -1,22 +1,37 @@
-from interface import interface
-from random_file import generate_data
+from interface import interface, menuAnalysis
+# from generateData import generateData
+import random 
+import os
 
-import interface
-def main_analysis():
-  no_entries = int(input('Enter number of entries into the file for testing\nenter here: '))
-  file_name = "rand_file_"+str(no_entries)+".txt"
-  generate_data(file_name, no_entries)
-  interface.menu_analysis(file_name, no_entries, no_entries)#changed car analysis to menu analysis
+def generateData(randFileName, noEntries):
+    fileName = "temp.csv"
+    with open(fileName, "w") as writeFile:
+        for i in range(1, noEntries + 1):
+            mealName = "pastora" + str(i)
+            mealCalories = "210"
+            mealIngredients = "meat"
+            mealType = "Mexican"
+            mealPrice = "12"
+            writeFile.write(mealName + "," + mealCalories + "," + mealIngredients + "," + mealType + "," + mealPrice + '\n')
+    with open(fileName, 'r') as source:
+        data = [(random.random(), line) for line in source]
+    data.sort()
+    with open(randFileName, 'w') as target:
+        for _, line in data:
+            target.write(line)
+    os.remove(fileName)
+    
+def mainAnalysis():
+    noEntries = int(input('Enter number of entries into the file for testing\nenter here: '))
+    fileName = "rand_file_" + str(noEntries) + ".txt"
+    generateData(fileName, noEntries)
+    menuAnalysis(fileName, noEntries, noEntries)
+    os.remove(fileName)
+    
 if __name__ == "__main__":
-  choice = int(input('[0] - testing speed with different data structures\n[1] - for menu Creation\nEnter Here: '))
-  if choice == 0:
-    main_analysis()
-  elif choice == 1:
-    interface.interface()
-
-
-
-
-  
-
+    choice = int(input('[0] - testing speed with different data structures\n[1] - for menu Creation\nEnter Here: '))
+    if choice == 0:
+        mainAnalysis()
+    elif choice == 1:
+        interface()
 
