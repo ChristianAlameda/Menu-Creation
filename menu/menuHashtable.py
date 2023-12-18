@@ -14,19 +14,19 @@ class MenuHashtable(MenuAbstract):
         # not doing this one
         pass
 
-    def printMenu(self):  # yahir
+    def printMenu(self):  
         self.hashtable.printLL()
 
-    def addMenu(self, key, value):  # yahir
+    def addMenu(self, key, value):  
         self.hashtable.add(key, value)
 
-    def removeMenu(self, restaurant, meal):  # yahir
+    def removeMenu(self, restaurant, meal):  
         if meal is None:
             return self.notFound()
         else:
             self.hashtable.pop(meal)
 
-    def editInventory(self, meal, calories, ingredients, mealType, price):  # christian
+    def editInventory(self, meal, calories, ingredients, mealType, price):  
         entry = self.searchMeal(meal)
         if entry is None:
             return None
@@ -48,7 +48,7 @@ class MenuHashtable(MenuAbstract):
                 entry.setType(line[4])
                 self.hashtable[entry.getMeal()] = entry
 
-    def writeBack(self, restaurant):  # christian
+    def writeBack(self, restaurant):  
         with open(restaurant, "w") as csvfile:
             csvwriter = csv.writer(csvfile)
             meal = self.hashtable

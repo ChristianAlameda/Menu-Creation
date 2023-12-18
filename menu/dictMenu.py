@@ -5,7 +5,7 @@ import csv
 
 class DictMenu(MenuAbstract):
     def __init__(self):
-        self.dictList = DictLinkedList()  # linkedlistdictionary we made
+        self.dictList = DictLinkedList()
 
     def searchMeal(self, meal):
         if meal in self.dictList:
@@ -16,20 +16,19 @@ class DictMenu(MenuAbstract):
         if mealType in self.dictList:
             tmp.append(mealType)
 
-    def printMenu(self):  # yahir
+    def printMenu(self):  
         print("[Meals], [Calories], [Ingredients], [Food Types], [Prices]")
         self.dictList.print_LL()
 
-    def addMenu(self, key, value):  # yahir
+    def addMenu(self, key, value):  
         self.dictList._insert(key, value)
 
-    def removeMenu(self, restaurant, meal):  # yahir
+    def removeMenu(self, restaurant, meal):  
         if meal is None:
             return self.notFound()
         else:
             self.dictList.pop(meal)
-
-    # christian next 2
+            
     def editInventory(self, meal, calories, ingredients, mealType, price):
         entry = self.searchMeal(meal)
         if entry is None:
@@ -39,7 +38,7 @@ class DictMenu(MenuAbstract):
         entry.setType(mealType)
         entry.setPrice(price)
 
-    # christian
+    
     def createInventory(self, restaurant):
         with open(restaurant, "r") as csvfile:
             csvreader = csv.reader(csvfile)
@@ -52,7 +51,7 @@ class DictMenu(MenuAbstract):
                 entry.setPrice(line[4])
                 self.dictList[entry.getMeal()] = entry
 
-    def writeBack(self, restaurant):  # yahir
+    def writeBack(self, restaurant):  
         with open(restaurant, "w") as csvfile:
             csvwriter = csv.writer(csvfile)
             for meal in self.dictList:

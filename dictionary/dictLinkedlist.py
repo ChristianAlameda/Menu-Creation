@@ -14,7 +14,7 @@ class Node:
       return str(self.key)+": "+ str(self.value)
 
 class DictLinkedList(DictAbstract): #(DictAbstract)
-#Christian next 2 functions
+  #next 2 functions
   #want to intialize the head or the front of the list
   # as well as the size of the list
   def __init__(self):
@@ -56,16 +56,14 @@ class DictLinkedList(DictAbstract): #(DictAbstract)
       
     #we don't have the thing in binary tree where we can check left or right
   #  we just need to check if the next value is the answer we asked for and if not check the next, until we either find it or it returns null because thats the end of the list
-  
-  #christian wants to try pop
-  #christian
+    
   def pop(self, key):
     value = self[key]
     self._remove(key)
     return value
   
 
-  #christian
+  
   def _remove(self,key):
 
     # check if the head itself is bad
@@ -92,21 +90,18 @@ class DictLinkedList(DictAbstract): #(DictAbstract)
     curr = None
           
  
-    #yahir
   def __setitem__(self, key, value): #will create the value for the dictionary
     if self._head == None: 
       self._head = Node(key, value) #makes value the information stored in the node if there is nothing in value already
       self._size += 1 
     else:
       self._insert(key, value) #if something is stored in value, it will call the insert function and set the new value 
-
-   #yahir 
+ 
   def _insert(self, key, value): #inserts node to the front of a linked list
     node = Node(key, value) #creates new node
     node.next = self._head #will point the new node to head 
     self._head = node #makes the new node the head of the linked list
     
-    #yahir
   def printLL(self): #will be called to main to print out contents of linked list
     if self._head == None: 
       print("Linked list is empty")

@@ -2,7 +2,6 @@ from dictionary.dictAbstract import DictAbstract
 # this class will be like linkedlist
 #ask about needing an abstract class for hashtable
 class DictHashtable(DictAbstract):
-  #christian and yahir did constructor
   def __init__(self):
     self.__size = 18 #place holder changed from 100 to 18
     self.arr = [None] * self.__size # would be the list of meals
@@ -16,7 +15,7 @@ class DictHashtable(DictAbstract):
   def __contains__(self,key):
     return not self.search(key)
 
-  def __getitem__(self, key): #yahir
+  def __getitem__(self, key): 
     search_key = self.search(key)
     if search_key == None:
       return None #will return none if serarch_key is None
@@ -25,19 +24,20 @@ class DictHashtable(DictAbstract):
   def __setitem__(self, key, value):
     self.add(key, value)
     
-  def pop(self, key): #yahir
+  def pop(self, key): 
     value = self[key]
     self.delete(key)
     return value
     
-  def hashFunction(self, key): #yahir 
+  def hashFunction(self, key):  
     hash = 0
     for i in str(key):
       hash += ord(i)
     return hash % self.__size
     
-  def delete(self, key):# christian
-  #to delete an item from a hash table, we need to know the key and with that we get rid of the value corresponding to the key. We do not have to worry about the  order of the hash table, so it's fine
+  def delete(self, key):
+    #to delete an item from a hash table, we need to know the key and with that we get rid of the value corresponding to the key. 
+    # We do not have to worry about the  order of the hash table, so it's fine
     hashing = self.hashFunction(key)
     # getting a variable and setting it
     #to the return valued from hashFunction
@@ -54,8 +54,10 @@ class DictHashtable(DictAbstract):
         break
       else:
         i+=1
-    
-  def add(self,key, value): #yahir| will add to the hash table by checking if table is empty, if it is then it adds the key and value to the table. If it is not empty then it checks if the key exists in the table already. If the key does exists it updates the value to the next index. If the key doesn't exist, it will append the the key to the hash table along with its value. 
+  #| will add to the hash table by checking if table is empty, if it is then it adds the key and value to the table. 
+  # If it is not empty then it checks if the key exists in the table already. If the key does exists it updates the value to the next index. 
+  # If the key doesn't exist, it will append the the key to the hash table along with its value. 
+  def add(self,key, value): 
     hashing = self.hashFunction(key)
     key_value = [key, value] #list holds key and value
     if self.arr[hashing] is None:

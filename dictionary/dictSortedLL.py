@@ -5,11 +5,9 @@ inherit from dinct linked List which is inheriting from Dict Abstract
 '''
 
 from dictionary.dictAbstract import DictAbstract
-# from dictLinkedlist import DictLinkedList
-#sorting for the list
-# Dr. Hatem's notes: change here to inhert from the DictAbstract
+
 class DictSortedLL(DictAbstract):
-  #yahir
+  
   def __init__(self): #constructor building list
     self.key = []
     self.value = []
@@ -18,48 +16,48 @@ class DictSortedLL(DictAbstract):
     #2d list
 
   #getting the length of the dictionary
-  def __len__(self):#yumong
+  def __len__(self):
     return len(self.key)
   
   # will show if the dictionary contains an item
-  def __contains__(self,key):#yahir
+  def __contains__(self,key):
     return not self.binarySearch(key)
 
   #dont know if we need get and set
   # will go through the dictionary and get the item or items we need
-  def __getitem__(self,key):#yahir
+  def __getitem__(self,key):
     index = self.binarySearch(key)
     if index == None:
       raise KeyError("item does not exist")
   
   #will grab the item from get item and set it so we can use it
-  def __setitem__(self,key,value):#yahir
+  def __setitem__(self,key,value):
     if self.value == None:
       print("There are no keys nor value")
     else:
       self.key.append(key)
       self.value.append(value)
       
-  def printLL(self):#yumong
+  def printLL(self):
     if self.key == None:
       print("there are no keys or values stored")
     else:
       for i in range(0, len(self.key)):
         print(str(self.key[i]) + ":" + str(self.value[i]))
 
-  def pop(self,key): #yumong
+  def pop(self,key): 
     value = self[key]
     self.remove(key)
     return value
   
-  def remove(self, input1): #yahir
+  def remove(self, input1): 
     search = self.binarySearch(input1) #turns key into a value
     for i in range(0, len(self.value)):
         if self.value[i] == search: #checks if value found is equal to the one we want
             self.value.pop(i) and self.key.pop(i) #will pop both elements out of each list
             break
 
-  #christian did shell_sort, add, and binarySearch
+  
   '''
   insert will act as our add
   and we will give a newKey and a new Value

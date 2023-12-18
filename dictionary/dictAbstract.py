@@ -10,7 +10,6 @@ class DictAbstract(ABC):
   def __contains__(self,key):
     pass
   @abstractmethod
-  #dont know if we need get and set
   # will go through the dictionary and get the item or items we need
   def __getitem__(self,key):#getitem
     pass

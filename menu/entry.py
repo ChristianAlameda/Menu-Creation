@@ -9,7 +9,7 @@ class Entry:
     def getMeal(self):
         return self.__meal
 
-    def setMeal(self, meal):  # yahir line 18 - 26
+    def setMeal(self, meal):  
         self.__meal = meal
 
     def getPrice(self):
