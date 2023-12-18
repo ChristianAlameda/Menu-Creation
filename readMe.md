@@ -1,6 +1,6 @@
 
 
-# Computer Science Project Title
+# Menu-Creation / Data Structure Testing
 
 ## Overview
 
@@ -51,6 +51,6 @@ python main.py
 
 
 ## License
--- ChristianAlameda
+- ChristianAlameda
 
 
